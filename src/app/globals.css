@@ -1,0 +1,100 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 220 15% 20%; /* Darker slate blue for text */
+    --card: 0 0% 100%; /* White card */
+    --card-foreground: 220 15% 20%;
+    --popover: 0 0% 100%; /* White popover */
+    --popover-foreground: 220 15% 20%;
+    --primary: 210 50% 60%; /* Subtle blue */
+    --primary-foreground: 210 40% 98%; /* Light text on primary */
+    --secondary: 220 15% 95%; /* Very light gray-blue for secondary elements */
+    --secondary-foreground: 210 50% 40%; /* Darker blue text on light secondary */
+    --muted: 220 15% 92%; /* Light gray-blue for muted elements */
+    --muted-foreground: 220 10% 45%; /* Softer gray-blue text for muted */
+    --accent: 16 100% 74.5%; /* Orange */
+    --accent-foreground: 0 0% 9%; /* Dark text for accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 0%; /* Black border for light theme */
+    --input: 0 0% 0%;  /* Black input for light theme */
+    --ring: 0 0% 100%; /* White for light theme */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    --sidebar-background: 240 5.9% 90%;
+    --sidebar-foreground: 240 4.8% 20%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 85%;
+    --sidebar-accent-foreground: 240 4.8% 20%;
+    --sidebar-border: 240 3.7% 80%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 220 15% 5%; /* Very dark desaturated blue / near-black */
+    --foreground: 0 0% 95%; /* Light text */
+    --card: 220 15% 10%; /* Darker card */
+    --card-foreground: 0 0% 95%;
+    --popover: 220 15% 8%; /* Even darker popover */
+    --popover-foreground: 0 0% 95%;
+    --primary: 210 50% 60%; /* Subtle blue */
+    --primary-foreground: 0 0% 95%; /* Light text for primary */
+    --secondary: 220 15% 15%; /* Dark secondary */
+    --secondary-foreground: 0 0% 95%;
+    --muted: 220 15% 20%; /* Dark muted */
+    --muted-foreground: 0 0% 60%; /* Lighter muted text */
+    --accent: 16 100% 74.5%; /* Orange */
+    --accent-foreground: 0 0% 9%; /* Dark text for accent */
+    --destructive: 0 62.8% 50.6%; /* Darker destructive */
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 0% 100%; /* White border for dark theme */
+    --input: 0 0% 100%;  /* White input for dark theme */
+    --ring: 0 0% 95%; /* Light gray for dark theme */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
+  }
+  section {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+}
+
+@layer components {
+  .radial-orange-glow-indicator {
+    background: radial-gradient(ellipse at center, hsl(var(--accent)) 0%, transparent 70%);
+    filter: blur(12px); /* Corresponds to Tailwind's blur-md. Adjust as needed e.g. blur(8px) for blur-sm */
+    /* Ensure it doesn't affect layout if the parent is precisely sized */
+    width: 100%;
+    height: 100%;
+    border-radius: inherit; /* Inherit border-radius from parent if needed */
+  }
+}
