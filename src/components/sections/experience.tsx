@@ -8,22 +8,22 @@ import { Briefcase, GraduationCap, MapPin, CalendarDays } from "lucide-react";
 const workExperience = [
   {
     id: "work1",
-    title: "Senior Fullstack Developer",
-    company: "Innovatech Solutions Ltd.",
-    date: "March 2021 - Present",
+    title: "Fullstack Developer Intern",
+    company: "Achieve Without Borders",
+    date: "February 2025 - May 2025",
     location: "Makati City, Philippines",
     responsibilities: [
-      "Led the development of scalable web applications using Next.js, React, and Node.js.",
-      "Designed and implemented RESTful APIs and managed database schemas with PostgreSQL.",
+      "Led the development of scalable web applications using Javascript, Python, and PHP.",
+      "Designed and implemented Odoo modules and managed database schemas with PostgreSQL.",
       "Collaborated with cross-functional teams to deliver high-quality software products.",
-      "Mentored junior developers and conducted code reviews to ensure code quality and consistency."
+      "Mentored co-intern developers and conducted code reviews to ensure code quality and consistency."
     ],
   },
   {
     id: "work2",
-    title: "Junior Web Developer",
+    title: "Freelance Web Developer",
     company: "Creative Web Services",
-    date: "June 2019 - February 2021",
+    date: "June 2024 - Present",
     location: "Quezon City, Philippines",
     responsibilities: [
       "Assisted in developing and maintaining client websites using HTML, CSS, JavaScript, and PHP.",
@@ -36,16 +36,23 @@ const workExperience = [
 const educationExperience = [
   {
     id: "edu1",
-    degree: "B.S. in Information Technology",
-    institution: "University of the Philippines Diliman",
-    date: "August 2015 - June 2019",
-    description: "Specialized in Web Development and Software Engineering. Graduated with honors.",
+    degree: "B.S. in Computer Engineering",
+    institution: "Technological Institute of the Philippines",
+    date: "August 2021 - August 2025",
+    description: "Specialized in Data Science and Software Engineering. Graduated with honors.",
   },
   {
     id: "edu2",
+    degree: "Senior High School Graduate",
+    institution: "Caloocan City Science High School",
+    date: "June 2019 - April 2021",
+    description: "STEM-Track. Graduated with honors.",
+  },
+  {
+    id: "edu3",
     degree: "Full Stack Web Development Bootcamp",
     institution: "Zuitt Coding Bootcamp",
-    date: "January 2019 - April 2019",
+    date: "January 2023 - April 2023",
     description: "Intensive training program covering MERN stack (MongoDB, Express.js, React, Node.js).",
   },
 ];
