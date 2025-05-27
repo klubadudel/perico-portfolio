@@ -1,15 +1,31 @@
-
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Award, Brain, Briefcase, Code, Users } from "lucide-react";
+import { Award, Brain, Briefcase, Code, Users, Database } from "lucide-react";
+import { SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiExpress, SiPostgresql, SiMongodb, SiTailwindcss, SiGit, SiDocker, SiYaml, SiPython, SiVuedotjs, SiHtml5, SiCss3, SiJavascript, SiCplusplus, SiC, SiFirebase, SiSupabase, SiOpenaccess } from "react-icons/si";
 
 export function AboutMeSection() {
-  const skills = [
-    { name: "Frontend Development", icon: <Code className="h-5 w-5 text-primary" /> },
-    { name: "Backend Development", icon: <Briefcase className="h-5 w-5 text-primary" /> },
-    { name: "UI/UX Design", icon: <Award className="h-5 w-5 text-primary" /> },
-    { name: "Problem Solving", icon: <Brain className="h-5 w-5 text-primary" /> },
-    { name: "Team Collaboration", icon: <Users className="h-5 w-5 text-primary" /> },
+  const technologies = [
+    { name: "React", icon: <SiReact className="h-5 w-5 text-cyan-500" /> },
+    { name: "Next.js", icon: <SiNextdotjs className="h-5 w-5 text-black" /> },
+    { name: "TypeScript", icon: <SiTypescript className="h-5 w-5 text-blue-600" /> },
+    { name: "JavaScript", icon: <SiJavascript className="h-5 w-5 text-yellow-400" /> },
+    { name: "Node.js", icon: <SiNodedotjs className="h-5 w-5 text-green-600" /> },
+    { name: "Express.js", icon: <SiExpress className="h-5 w-5 text-gray-800" /> },
+    { name: "Python", icon: <SiPython className="h-5 w-5 text-blue-400" /> },
+    { name: "Vue.js", icon: <SiVuedotjs className="h-5 w-5 text-green-500" /> },
+    { name: "HTML5", icon: <SiHtml5 className="h-5 w-5 text-orange-600" /> },
+    { name: "CSS3", icon: <SiCss3 className="h-5 w-5 text-blue-500" /> },
+    { name: "YAML/YML", icon: <SiYaml className="h-5 w-5 text-gray-500" /> },
+    { name: "C++", icon: <SiCplusplus className="h-5 w-5 text-blue-700" /> },
+    { name: "C", icon: <SiC className="h-5 w-5 text-gray-700" /> },
+    { name: "Firebase", icon: <SiFirebase className="h-5 w-5 text-yellow-500" /> },
+    { name: "Supabase", icon: <SiSupabase className="h-5 w-5 text-green-600" /> },
+    { name: "Odoo", icon: <img src="/icons/odoo.svg" alt="Odoo" className="h-5 w-5" /> },
+    { name: "PostgreSQL", icon: <SiPostgresql className="h-5 w-5 text-blue-800" /> },
+    { name: "MongoDB", icon: <SiMongodb className="h-5 w-5 text-green-700" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss className="h-5 w-5 text-sky-400" /> },
+    { name: "Git", icon: <SiGit className="h-5 w-5 text-orange-500" /> },
+    { name: "Docker", icon: <SiDocker className="h-5 w-5 text-blue-400" /> },
   ];
 
   return (
@@ -22,7 +38,7 @@ export function AboutMeSection() {
           <div className="md:flex">
             <div className="md:w-1/3">
               <Image
-                src="https://placehold.co/400x400.png"
+                src="/professional_portrait.png"
                 alt="Profile Picture"
                 width={400}
                 height={400}
@@ -33,24 +49,18 @@ export function AboutMeSection() {
             <div className="md:w-2/3">
               <CardHeader>
                 <CardTitle className="text-2xl">Hello, I&apos;m a Developer!</CardTitle>
-                <CardDescription className="text-lg text-muted-foreground">
-                  Passionate about creating elegant and efficient solutions.
-                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-foreground/80 leading-relaxed">
-                  I am a versatile full-stack developer with a keen eye for detail and a passion for crafting innovative digital experiences. My journey in tech has equipped me with a strong foundation in both front-end and back-end technologies, allowing me to build comprehensive and user-centric applications.
-                </p>
-                <p className="text-foreground/80 leading-relaxed">
-                  With experience in modern JavaScript frameworks, server-side logic, and database management, I thrive on transforming complex problems into intuitive and performant solutions. I am dedicated to continuous learning and staying updated with the latest industry trends to deliver cutting-edge results.
+                  I develop web applications using modern JavaScript frameworks, server-side technologies, and database systems. My background includes both client-side and server-side programming, enabling me to deliver complete solutions.
                 </p>
                 <div>
-                  <h3 className="text-xl font-semibold mb-3">My Key Skills</h3>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {skills.map((skill) => (
-                      <li key={skill.name} className="flex items-center space-x-2 p-2 rounded-md bg-muted/20 dark:bg-muted/50">
-                        {skill.icon}
-                        <span>{skill.name}</span>
+                  <h3 className="text-xl font-semibold mb-3">TechStack</h3>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    {technologies.map((tech) => (
+                      <li key={tech.name} className="flex items-center space-x-2 p-2 rounded-md bg-muted/20 dark:bg-muted/50">
+                        {tech.icon}
+                        <span>{tech.name}</span>
                       </li>
                     ))}
                   </ul>
