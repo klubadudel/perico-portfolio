@@ -63,22 +63,22 @@ export default function HomePage() {
             
             <div className="mt-8 flex flex-row justify-center items-center gap-3 sm:gap-4">
               <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
-                <Link href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                <Link href="https://github.com/rperico-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                   <Github className="h-5 w-5" />
                 </Link>
               </Button>
               <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
-                <Link href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                <Link href="https://www.linkedin.com/in/ricardo-perico-jr" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
                   <Linkedin className="h-5 w-5" />
                 </Link>
               </Button>
               <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
-                <Link href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
+                <Link href="https://www.instagram.com/jongkiee04" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
                   <Instagram className="h-5 w-5" />
                 </Link>
               </Button>
               <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
-                <Link href="#" target="_blank" rel="noopener noreferrer" aria-label="Schedule a Meeting">
+                <Link href="https://cal.com/ricardo-perico-jr" target="_blank" rel="noopener noreferrer" aria-label="Schedule a Meeting">
                   <CalendarPlus className="h-5 w-5" />
                 </Link>
               </Button>
