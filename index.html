@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricardo Perico Jr. - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #fafaf9; color: #292524; overflow-x: hidden; } /* Added overflow-x: hidden */
+        .nav-link { @apply block px-3 py-2 rounded-xl text-sm font-medium text-stone-700 transition-all duration-200 hover:bg-white focus:bg-white hover:text-sky-700 focus:text-sky-800 focus:outline-none; }
+        .section-title { @apply text-3xl font-bold text-sky-700 mb-8 text-center; }
+        .card { @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300; }
+        .tag { @apply inline-block bg-sky-100 text-sky-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full; }
+        .btn { @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg focus:outline-none transform hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50; }
+        .btn-primary { @apply bg-sky-600 text-white hover:bg-sky-700 focus-visible:ring-sky-500; }
+        .btn-secondary { @apply bg-amber-500 text-white hover:bg-amber-600 focus-visible:ring-amber-500; }
+        .chart-container { position: relative; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        @media (min-width: 640px) { .chart-container { height: 350px; max-height: 400px; } }
+        .modal { @apply fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 transition-opacity duration-300; }
+        .modal-content { @apply bg-white p-6 sm:p-8 rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto; }
+        .icon-placeholder { @apply inline-block w-5 h-5 mr-2 text-sky-600; }
+        #mobile-menu-button { @apply focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-white; }
+        #close-modal-button { @apply p-1 rounded-full hover:bg-stone-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white transition-colors; }
+        /* Load Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    </style>
+</head>
+<body class="bg-gradient-to-br from-sky-100 via-stone-50 to-amber-50 text-stone-800">
+
+    <nav id="navbar" class="backdrop-blur-md shadow-md fixed top-5 left-0 right-0 z-40 rounded-2xl w-fit mx-auto">
+        <div class="px-4 sm:px-6 lg:px-8 flex justify-center">
+            <div class="flex items-center justify-between h-12 w-fit mx-auto">
+                <div class="hidden md:flex flex-1 justify-center">
+                    <div class="flex items-center space-x-4">
+                        <a href="#home" class="nav-link">Home</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#experience" class="nav-link">Experience</a>
+                        <a href="#education" class="nav-link">Education</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex-1 flex justify-end">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-stone-500 hover:text-sky-600 hover:bg-stone-100 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="flex flex-col items-center px-4 pt-4 pb-4 space-y-2 bg-white/80 rounded-xl shadow-lg mt-2 mx-2 backdrop-blur-md transition-all duration-300 overflow-hidden">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="h-20"></div> <!-- Spacer to prevent content from being hidden under the fixed navbar -->
+
+    <header id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-100 via-stone-50 to-amber-50 py-20 px-4">
+        <div class="text-center container mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold text-sky-700 mb-4">Ricardo Perico Jr.</h1>
+            <p class="text-2xl md:text-3xl text-stone-700 mb-8">Computer Engineer | Web & IoT Developer</p>
+            <p class="text-lg text-stone-600 max-w-2xl mx-auto mb-10">
+                Passionate about crafting innovative full-stack web solutions and intelligent IoT systems. Eager to apply my skills to solve real-world problems and contribute to impactful projects.
+            </p>
+            <a href="#projects" class="btn btn-primary mr-4">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="bg-white p-8 rounded-xl shadow-xl max-w-3xl mx-auto text-lg text-stone-700 leading-relaxed space-y-4">
+                <p>
+                    I am a dedicated and enthusiastic Computer Engineering student with a strong foundation in software development, particularly in full-stack web technologies and the Internet of Things. My objective is to leverage my technical expertise and problem-solving abilities to develop practical and efficient solutions, as demonstrated in projects like the AC & Refrigerator Monitoring System.
+                </p>
+                <p>
+                    My journey into technology is driven by a curiosity for how things work and a desire to build applications that make a tangible difference. I am constantly learning and exploring new tools and frameworks to enhance my skill set and stay at the forefront of technological advancements. I thrive in collaborative environments and am committed to continuous improvement and lifelong learning.
+                </p>
+            </div>
+        </section>
+
+        <hr class="border-stone-200">
+
+        <section id="skills">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <p class="text-center text-lg text-stone-600 mb-12 max-w-2xl mx-auto">
+                I have experience with a diverse range of technologies for building modern web applications and IoT solutions. Here's a breakdown of my key technical skills:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-sky-600 mb-3"><span class="icon-placeholder">💻</span>Frontend</h3>
+                    <ul id="frontend-skills-list" class="space-y-2 text-stone-600"></ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-sky-600 mb-3"><span class="icon-placeholder">⚙️</span>Backend</h3>
+                    <ul id="backend-skills-list" class="space-y-2 text-stone-600"></ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-sky-600 mb-3"><span class="icon-placeholder">🗃️</span>Database</h3>
+                    <ul id="database-skills-list" class="space-y-2 text-stone-600"></ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-sky-600 mb-3"><span class="icon-placeholder">💡</span>IoT</h3>
+                    <ul id="iot-skills-list" class="space-y-2 text-stone-600"></ul>
+                </div>
+                 <div class="card md:col-span-2 lg:col-span-4">
+                    <h3 class="text-xl font-semibold text-sky-600 mb-3"><span class="icon-placeholder">🛠️</span>Tools & Methodologies</h3>
+                    <ul id="tools-skills-list" class="space-y-2 text-stone-600 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"></ul>
+                </div>
+                <div class="card md:col-span-2 lg:col-span-4">
+                    <h3 class="text-xl font-semibold text-sky-600 mb-3"><span class="icon-placeholder">👨🏻‍💻</span>Data Science</h3>
+                    <ul id="datascience-skills-list" class="space-y-2 text-stone-600 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"></ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-stone-200">
+
+        <section id="projects">
+            <h2 class="section-title">Highlighted Projects</h2>
+            <p class="text-center text-lg text-stone-600 mb-12 max-w-2xl mx-auto">
+                Here are some of the key projects I've worked on, showcasing my skills in web development, IoT, and data analysis. Click 'View Details' to learn more about each project's objectives, technologies, and outcomes.
+            </p>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            </div>
+        </section>
+
+        <hr class="border-stone-200">
+
+        <section id="experience">
+            <h2 class="section-title">Work Experience & Internships</h2>
+            <p class="text-center text-lg text-stone-600 mb-12 max-w-2xl mx-auto">
+                My professional experiences have allowed me to apply my technical skills in real-world settings, contribute to team projects, and develop a deeper understanding of the software development lifecycle.
+            </p>
+            <div id="experience-list" class="space-y-8 max-w-3xl mx-auto">
+            </div>
+        </section>
+
+        <hr class="border-stone-200">
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+             <p class="text-center text-lg text-stone-600 mb-12 max-w-2xl mx-auto">
+                My formal education in Computer Engineering has provided me with a comprehensive understanding of core computing principles and specialized knowledge in areas relevant to my career aspirations.
+            </p>
+            <div class="card max-w-2xl mx-auto">
+                <h3 class="text-2xl font-semibold text-sky-600">Bachelor of Science in Computer Engineering</h3>
+                <p class="text-lg text-amber-600 font-medium">[Your University Name]</p>
+                <p class="text-stone-500 mb-3">Expected Graduation: 2025</p>
+                <p class="text-stone-700 font-medium mb-2">Key Subjects:</p>
+                <ul id="education-subjects-list" class="list-disc list-inside text-stone-600 space-y-1">
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="text-center text-lg text-stone-600 mb-12 max-w-xl mx-auto">
+                I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!
+            </p>
+            <div class="card max-w-xl mx-auto">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-stone-700">Full Name</label>
+                        <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 focus:border-sky-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-stone-700">Email Address</label>
+                        <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 focus:border-sky-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-stone-700">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 focus:border-sky-500 sm:text-sm"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+                <div class="mt-8 text-center">
+                    <p class="text-stone-600 mb-3">Or connect with me directly:</p>
+                    <div id="contact-links" class="flex justify-center space-x-6">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-stone-800 text-stone-300 py-8 text-center">
+        <p>&copy; <span id="currentYear"></span> Ricardo Perico Jr. All Rights Reserved.</p>
+        <p class="text-sm">Built with Next.js, Tailwind CSS, and Vanilla JavaScript.</p>
+    </footer>
+
+    <div id="project-modal" class="modal hidden opacity-0">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="text-2xl font-bold text-sky-700"></h3>
+                <button id="close-modal-button" class="text-stone-500 hover:text-stone-700 text-3xl leading-none">&times;</button>
+            </div>
+            <p id="modal-description" class="text-stone-700 mb-4 leading-relaxed"></p>
+            <h4 class="text-lg font-semibold text-sky-600 mb-2">Technologies Used:</h4>
+            <div id="modal-tech-tags" class="mb-6"></div>
+            <div id="modal-chart-container" class="chart-container mb-6 hidden">
+                 <canvas id="projectTechChart"></canvas>
+            </div>
+            <div id="modal-links" class="flex flex-wrap gap-3">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const portfolioData = {
+            name: "Ricardo Perico Jr.",
+            role: "Computer Engineering Student | Web & IoT Developer",
+            contact: {
+                email: "ricardo.pericojr@gmail.com",
+                github: "https://github.com/rperico-tech",
+                linkedin: "https://www.linkedin.com/in/ricardo-perico-jr-2359b933b/",
+                website: "https://rpericojr-portfolio.example.com"
+            },
+            skills: {
+            frontend: ["Next.js (React-based)", "Tailwind CSS", "TypeScript", "JavaScript"],
+            backend: ["Node.js", "Express", "Python", "Odoo"],
+            database: ["Firebase Firestore", "Firebase Authentication", "PostgreSQL"],
+            iot: ["ESP8266", "Raspberry Pi", "Arduino"],
+            tools: ["Git", "GitHub", "VSCode", "Postman", "Firebase Console", "Figma (Conceptual)", "GitHub Actions (Conceptual)", "Docker"],
+            dataScience: ["NumPy", "Scikit Learn", "Seaborn", "Pandas", "TensorFlow", "RoboFlow"]
+            },
+            projects: [
+                {
+                    id: "ac-monitor",
+                    title: "Device Status Central",
+                    shortDescription: "A web-based system to monitor appliance on/off status using IoT sensors, preventing damage by ensuring proper usage.",
+                    fullDescription: "This system provides real-time monitoring of air conditioners and refrigerators. It employs ESP8266 microcontrollers connected to SCT013 current sensors to detect whether an appliance is drawing power (on) or not (off). Data is relayed to a Firebase Firestore database, and a user-friendly web interface built with Next.js and React displays the current status and historical data. The primary objective is to prevent spoilage of goods or equipment damage by alerting to unexpected power-off situations or inefficiently long run times.",
+                    technologies: ["Next.js", "React", "Firebase Firestore", "Firebase Authentication", "ESP8266", "SCT013 Sensor"],
+                    liveDemo: "#",
+                    codeLink: "https://github.com/rperico-tech/device-status-central",
+                    techDistribution: { labels: ["Frontend (Next/React)", "Backend/DB (Firebase)", "IoT (ESP8266/Sensors)"], data: [2, 2, 2] }
+                },
+                {
+                    id: "house-price-prediction",
+                    title: "Linear Regression Model for House Price Prediction",
+                    shortDescription: "Developed a predictive model using linear regression for house prices in Ames, Iowa, based on multiple features.",
+                    fullDescription: "This project involved creating a machine learning model to predict housing prices in Ames, Iowa. Using Python, Pandas for data manipulation and exploration, and Scikit-learn for the linear regression algorithm, the model was trained on a dataset with numerous features. The process included data cleaning, feature engineering, model training, and evaluation of its predictive accuracy. The project was developed within a Google Colab notebook environment.",
+                    technologies: ["Python", "Pandas", "Scikit-learn", "Google Colab"],
+                    projectLink: "https://github.com/rpericojr-example/house-price-model"
+                }
+            ],
+            experience: [
+                {
+                    role: "Developer Intern",
+                    company: "Achieve Without Borders Inc. (AWB)",
+                    duration: "June 2023 - Aug 2023 (Example Dates)",
+                    responsibilities: [
+                        "Contributed to the development of software solutions for clients in the retail sector.",
+                        "Worked on both front-end (React, Next.js) and back-end (Firebase, Node.js) components.",
+                        "Participated in meetings with cross-functional teams (QA, BA, FC) for project delivery."
+                    ],
+                    skillsDeveloped: ["Project management", "Teamwork", "React", "Next.js", "Firebase"]
+                },
+                {
+                    role: "Freelance Web Developer",
+                    company: "Self-Employed",
+                    duration: "Jan 2022 - Present (Example Dates)",
+                    responsibilities: [
+                        "Built websites for small businesses and individual clients, focusing on modern web design, responsive interfaces, and performance optimization."
+                    ]
+                }
+            ],
+            education: {
+                degree: "Bachelor of Science in Computer Engineering",
+                university: "[Your University Name - To Be Filled]",
+                graduationYear: "2025 (Expected)",
+                keySubjects: ["Web Development", "Data Structures & Algorithms", "IoT Systems and Communication", "Database Management", "Software Engineering"]
+            },
+            achievements: [
+                "Certified Full-Stack Developer (Example: Coursera)",
+                "IoT Project Award - University TechFest 2023 (Example)",
+                "Dean's List - 2022, 2023 (Example)"
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentYear = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = currentYear;
+
+            function populateList(elementId, items, itemClass = 'list-item') {
+                const list = document.getElementById(elementId);
+                if (!list) return;
+                list.innerHTML = '';
+                items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    li.className = itemClass;
+                    list.appendChild(li);
+                });
+            }
+            
+            populateList('frontend-skills-list', portfolioData.skills.frontend, 'text-stone-600');
+            populateList('backend-skills-list', portfolioData.skills.backend, 'text-stone-600');
+            populateList('database-skills-list', portfolioData.skills.database, 'text-stone-600');
+            populateList('iot-skills-list', portfolioData.skills.iot, 'text-stone-600');
+            populateList('tools-skills-list', portfolioData.skills.tools, 'text-stone-600');
+            populateList('datascience-skills-list', portfolioData.skills.dataScience, 'text-stone-600');
+            populateList('education-subjects-list', portfolioData.education.keySubjects);
+            populateList('achievements-list', portfolioData.achievements);
+
+            const projectsGrid = document.getElementById('projects-grid');
+            portfolioData.projects.forEach(project => {
+                const projectCard = `
+                    <div class="card flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-sky-600 mb-2">${project.title}</h3>
+                            <p class="text-stone-600 mb-4 text-sm">${project.shortDescription}</p>
+                            <div class="mb-4">
+                                ${project.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="mt-auto space-y-2">
+                            <button data-project-id="${project.id}" class="view-details-btn btn btn-primary w-full text-sm">View Details</button>
+                            ${project.liveDemo !== '#' ? `<a href="${project.liveDemo}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full block text-center text-sm">Live Demo</a>` : ''}
+                            ${project.codeLink || project.projectLink ? `<a href="${project.codeLink || project.projectLink}" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-700 hover:underline underline-offset-2 decoration-sky-600/70 hover:decoration-sky-700 font-medium block text-center text-sm transition-colors duration-200">View Code <span aria-hidden="true">&rarr;</span></a>` : ''}
+                        </div>
+                    </div>
+                `;
+                projectsGrid.innerHTML += projectCard;
+            });
+
+            const experienceList = document.getElementById('experience-list');
+            portfolioData.experience.forEach(exp => {
+                const expItem = `
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-sky-600">${exp.role}</h3>
+                        <p class="text-lg text-amber-600 font-medium">${exp.company}</p>
+                        <p class="text-stone-500 text-sm mb-3">${exp.duration}</p>
+                        <ul class="list-disc list-inside text-stone-600 space-y-1 mb-3">
+                            ${exp.responsibilities.map(res => `<li>${res}</li>`).join('')}
+                        </ul>
+                        ${exp.skillsDeveloped ? `<p class="text-sm text-stone-700 font-medium">Skills Developed: ${exp.skillsDeveloped.join(', ')}</p>` : ''}
+                    </div>
+                `;
+                experienceList.innerHTML += expItem;
+            });
+
+            const contactLinksContainer = document.getElementById('contact-links');
+            contactLinksContainer.innerHTML = `
+                <a href="mailto:${portfolioData.contact.email}" class="text-sky-600 hover:text-sky-800 text-3xl transform hover:scale-110 transition-all duration-200" title="Email">📧</a>
+                <a href="${portfolioData.contact.github}" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 text-3xl transform hover:scale-110 transition-all duration-200" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="${portfolioData.contact.linkedin}" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 text-3xl transform hover:scale-110 transition-all duration-200" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            `;
+
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = e.target.name.value;
+                const email = e.target.email.value;
+                const message = e.target.message.value;
+                const subject = `Message from ${name} via Portfolio`;
+                window.location.href = `mailto:${portfolioData.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message + '\n\nFrom: ' + email)}`;
+                alert('Thank you! Your email application should now open to send the message.');
+                contactForm.reset();
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            mobileMenuButton.addEventListener('click', () => {
+                const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuButton.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.querySelectorAll('svg').forEach(svg => svg.classList.toggle('hidden'));
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                         mobileMenuButton.setAttribute('aria-expanded', 'false');
+                         mobileMenuButton.querySelectorAll('svg').forEach(svg => svg.classList.toggle('hidden'));
+                    }
+                });
+            });
+
+
+            const projectModal = document.getElementById('project-modal');
+            const closeModalButton = document.getElementById('close-modal-button');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalTechTags = document.getElementById('modal-tech-tags');
+            const modalLinks = document.getElementById('modal-links');
+            const modalChartContainer = document.getElementById('modal-chart-container');
+            let projectTechChartInstance = null;
+
+            document.querySelectorAll('.view-details-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const projectId = button.dataset.projectId;
+                    const project = portfolioData.projects.find(p => p.id === projectId);
+                    if (project) {
+                        modalTitle.textContent = project.title;
+                        modalDescription.textContent = project.fullDescription;
+                        
+                        modalTechTags.innerHTML = project.technologies.map(tech => `<span class="tag">${tech}</span>`).join('');
+                        
+                        let linksHTML = '';
+                        if (project.liveDemo && project.liveDemo !== '#') {
+                            linksHTML += `<a href="${project.liveDemo}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary text-sm">Live Demo</a>`;
+                        }
+                        if (project.codeLink || project.projectLink) {
+                            linksHTML += `<a href="${project.codeLink || project.projectLink}" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-sm">View Code</a>`;
+                        }
+                        modalLinks.innerHTML = linksHTML;
+
+                        if (project.techDistribution && project.techDistribution.labels && project.techDistribution.data) {
+                            modalChartContainer.classList.remove('hidden');
+                            const ctx = document.getElementById('projectTechChart').getContext('2d');
+                            if (projectTechChartInstance) {
+                                projectTechChartInstance.destroy();
+                            }
+                            projectTechChartInstance = new Chart(ctx, {
+                                type: 'doughnut',
+                                data: {
+                                    labels: project.techDistribution.labels,
+                                    datasets: [{
+                                        label: 'Tech Stack Distribution',
+                                        data: project.techDistribution.data,
+                                        backgroundColor: ['#38bdf8', '#f59e0b', '#10b981', '#6366f1', '#ec4899'],
+                                        borderColor: '#fff',
+                                        borderWidth: 2
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        legend: { position: 'bottom', labels: { color: '#44403c', font: { size: 12 } } },
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function(context) {
+                                                    let label = context.label || '';
+                                                    if (label) { label += ': '; }
+                                                    if (context.parsed !== null) {
+                                                        label += context.parsed;
+                                                    }
+                                                    return label;
+                                                }
+                                            }
+                                        }
+                                    },
+                                    cutout: '60%'
+                                }
+                            });
+                        } else {
+                            modalChartContainer.classList.add('hidden');
+                            if (projectTechChartInstance) {
+                                projectTechChartInstance.destroy();
+                                projectTechChartInstance = null;
+                            }
+                        }
+                        
+                        projectModal.classList.remove('hidden', 'opacity-0');
+                    }
+                });
+            });
+
+            closeModalButton.addEventListener('click', () => {
+                projectModal.classList.add('opacity-0');
+                setTimeout(() => projectModal.classList.add('hidden'), 300); 
+            });
+
+            projectModal.addEventListener('click', (event) => {
+                if (event.target === projectModal) {
+                    projectModal.classList.add('opacity-0');
+                    setTimeout(() => projectModal.classList.add('hidden'), 300);
+                }
+            });
+
+            const animatedElements = document.querySelectorAll('header[id], section[id]');
+            animatedElements.forEach(el => {
+                el.classList.add('opacity-0', 'transform', 'translate-y-8', 'transition-all', 'duration-700', 'ease-out');
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+        });
+    </script>
+</body>
+</html>
