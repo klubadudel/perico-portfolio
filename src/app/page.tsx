@@ -57,9 +57,6 @@ export default function HomePage() {
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none">
               Fullstack
             </h1>
-            <h1 className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl font-black tracking-tighter leading-none">
-              &
-            </h1>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none">
               IoT Developer
             </h1>
@@ -104,7 +101,7 @@ export default function HomePage() {
         </section>
         
         <AboutMeSection />
-        <ExperienceSection /> {/* Added new section */}
+        <ExperienceSection />
         <ProjectPortfolioSection />
         <ContactFormSection />
       </main>

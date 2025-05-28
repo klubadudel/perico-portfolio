@@ -1,11 +1,16 @@
-
 "use client";
 
-import { useActionState, useEffect } from "react"; // Changed from useFormState (react-dom) to useActionState (react)
+import { useActionState, useEffect, startTransition } from "react"; // Changed from useFormState (react-dom) to useActionState (react) and import startTransition
 import { useFormStatus } from "react-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+
+declare global {
+  interface Window {
+    grecaptcha: any; // Declare grecaptcha globally
+  }
+}
 
 import { Button } from "@/components/ui/button";
 import {
@@ -82,6 +87,60 @@ export function ContactFormSection() {
     }
   }, [state, toast, form]);
 
+  // Function to handle form submission including reCAPTCHA v3 execution
+  const handleClientSubmit = form.handleSubmit(async (values) => {
+    if (!process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY) {
+       console.error("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not set.");
+       toast({
+          title: "Configuration Error",
+          description: "reCAPTCHA site key is missing.",
+          variant: "destructive",
+       });
+       return; // Prevent submission
+    }
+
+    // Execute reCAPTCHA and get the token
+    window.grecaptcha.ready(function() {
+      startTransition(() => { // Wrap the reCAPTCHA execution and submission in a transition
+        window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, {action: 'submit'}).then(function(token: string) {
+          // Find the hidden input and set its value
+          const recaptchaInput = document.getElementById('g-recaptcha-response') as HTMLInputElement | null;
+          if (recaptchaInput) {
+            recaptchaInput.value = token;
+          } else {
+             console.error("Hidden reCAPTCHA input not found.");
+             toast({
+                title: "Configuration Error",
+                description: "reCAPTCHA input field is missing.",
+                variant: "destructive",
+             });
+             return; // Prevent submission
+          }
+
+          // Trigger the native form submission. 
+          // useActionState on the form's action prop will intercept this.
+          const formElement = document.getElementById('contact-form') as HTMLFormElement | null;
+          if (formElement) {
+             formElement.submit(); // Trigger native form submission
+          } else {
+             console.error("Contact form element not found for native submit.");
+             toast({
+                title: "Configuration Error",
+                description: "Form element not found.",
+                variant: "destructive",
+             });
+          }
+        }).catch((error: any) => { // Catch potential errors during reCAPTCHA execution
+            console.error("reCAPTCHA execution failed:", error);
+             toast({
+                title: "Error",
+                description: "Failed to execute reCAPTCHA. Please try again.",
+                variant: "destructive",
+             });
+        });
+      });
+    });
+  });
 
   return (
     <section id="contact" className="bg-background">
@@ -98,7 +157,9 @@ export function ContactFormSection() {
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form action={formAction} className="space-y-6">
+              {/* Use the client-side handler for submission */}
+              {/* The form's action prop is now handled by useActionState */} 
+              <form onSubmit={handleClientSubmit} className="space-y-6" id="contact-form" action={formAction}> 
                 <FormField
                   control={form.control}
                   name="name"
@@ -142,6 +203,12 @@ export function ContactFormSection() {
                     </FormItem>
                   )}
                 />
+                {/* Remove reCAPTCHA v2 Widget */}
+                {/* <div className="g-recaptcha" data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}></div> */}
+
+                {/* Hidden input for reCAPTCHA v3 token */}
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" />
+
                 <SubmitButton />
               </form>
             </Form>

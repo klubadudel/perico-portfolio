@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -51,7 +50,7 @@ const educationExperience = [
   {
     id: "edu3",
     degree: "Full Stack Web Development Bootcamp",
-    institution: "FreeCodeCamp Bootcamp",
+    institution: "FreeCodeCamp Coding Bootcamp",
     date: "January 2023 - April 2023",
     description: "Intensive training program covering MERN stack (MongoDB, Express.js, React, Node.js).",
   },
