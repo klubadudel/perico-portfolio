@@ -2,13 +2,14 @@ import Image from "next/image";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AboutMeSection } from "@/components/sections/about-me";
-import { ExperienceSection } from "@/components/sections/experience"; // Added import
+import { ExperienceSection } from "@/components/sections/experience";
 import { ProjectPortfolioSection } from "@/components/sections/project-portfolio";
 import { ContactFormSection } from "@/components/sections/contact-form";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Instagram, CalendarPlus, Download, Send, MapPin } from "lucide-react";
+import { TimezoneClock } from "@/components/timezone-clock";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Github, Linkedin, Instagram, CalendarPlus, Download, Send, MapPin, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { TimezoneClock } from "@/components/timezone-clock"; // Import the new component
 
 export default function HomePage() {
   return (
@@ -44,10 +45,10 @@ export default function HomePage() {
                     viewBox="0 0 32 20"
                     className="inline-block h-3 w-5 mr-1.5 align-middle "
                   >
-                    <rect width="32" height="10" y="0" fill="#0038A8"/> {/* Blue */}
-                    <rect width="32" height="10" y="10" fill="#CE1126"/> {/* Red */}
-                    <path d="M0 0 L13 10 L0 20 Z" fill="#FFFFFF"/> {/* White Triangle */}
-                    <circle cx="5" cy="10" r="1.8" fill="#FCD116"/> {/* Simplified Yellow Sun */}
+                    <rect width="32" height="10" y="0" fill="#0038A8"/>
+                    <rect width="32" height="10" y="10" fill="#CE1126"/>
+                    <path d="M0 0 L13 10 L0 20 Z" fill="#FFFFFF"/>
+                    <circle cx="5" cy="10" r="1.8" fill="#FCD116"/>
                   </svg>
                   Based in PH
                   <span className="text-md sm:text-lg text-muted-foreground flex items-center ml-2">
@@ -111,6 +112,72 @@ export default function HomePage() {
         <ExperienceSection />
         <ProjectPortfolioSection />
         <ContactFormSection />
+
+        <section className="relative overflow-hidden bg-background py-16">
+           <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+             <div className="relative h-40 overflow-hidden rounded-md shadow-lg">
+               <Card className="absolute inset-0 w-full h-full flex p-4 items-center gap-x-8">
+                 <div className="flex-shrink-0 flex ml-3 items-center justify-center rounded-md overflow-hidden">
+                    <Image
+                       src="/icon.jpg"
+                       alt="Profile Icon"
+                       width={110}
+                       height={110}
+                       className="object-cover"
+                       data-ai-hint="profile icon"
+                    />
+                 </div>
+                
+                   <div className="flex-shrink-0">
+                     <CardHeader className="p-0">
+                       <CardTitle className="text-6xl font-bold uppercase text-left font-black">Ricardo</CardTitle>
+                       <CardTitle className="text-6xl font-bold uppercase text-left font-black">Perico Jr.</CardTitle>
+                     </CardHeader>
+                   </div>
+
+                  <div className="flex flex-col ml-20 flex-grow gap-y-2">
+                   <div className="flex ml-5 flex-col gap-y-2">
+                     <CardContent className="p-0 flex flex-row ml-10 items-center gap-3">
+                         <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
+                           <Link href="https://github.com/rperico-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                             <Github className="h-5 w-5" />
+                           </Link>
+                         </Button>
+                         <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
+                           <Link href="https://www.linkedin.com/in/ricardo-perico-jr" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                             <Linkedin className="h-5 w-5" />
+                           </Link>
+                         </Button>
+                         <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
+                           <Link href="https://www.instagram.com/jongkiee04" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
+                             <Instagram className="h-5 w-5" />
+                           </Link>
+                         </Button>
+                         <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
+                           <Link href="https://cal.com/ricardo-perico-jr" target="_blank" rel="noopener noreferrer" aria-label="Schedule a Meeting">
+                             <CalendarPlus className="h-5 w-5" />
+                           </Link>
+                         </Button>
+                         <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
+                           <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download Resume" download>
+                             <Download className="h-5 w-5" />
+                           </Link>
+                         </Button>
+                     </CardContent>
+
+                     <div className="ml-10 flex-shrink-0">
+                       <CardHeader className="p-0">
+                         <CardTitle className="text-sm font-semibold text-left mb-[-8]">Powered by: Next.js and React</CardTitle>
+                       </CardHeader>
+                     </div>
+
+                   </div>
+                 </div>
+               </Card>
+             </div>
+           </div>
+        </section>
+
       </main>
       <Footer />
     </div>
