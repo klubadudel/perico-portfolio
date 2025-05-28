@@ -64,11 +64,11 @@ export function ExperienceSection() {
           My Experience
         </h2>
         <Tabs defaultValue="work" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:w-1/2 mx-auto mb-8">
-            <TabsTrigger value="work" className="py-2">
+          <TabsList className="grid w-full grid-cols-2 md:w-1/2 mx-auto mb-8 rounded-md border bg-muted/50 shadow-sm">
+            <TabsTrigger value="work" className="py-1 px-2 rounded-sm">
               <Briefcase className="mr-2 h-5 w-5" /> Work
             </TabsTrigger>
-            <TabsTrigger value="education" className="py-2">
+            <TabsTrigger value="education" className="py-1 px-2 rounded-sm">
               <GraduationCap className="mr-2 h-5 w-5" /> Education
             </TabsTrigger>
           </TabsList>

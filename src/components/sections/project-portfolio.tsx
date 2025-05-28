@@ -14,7 +14,7 @@ const projectsData: Project[] = [
     description: "A full-featured IoT platform application with status monitoring, notification, and logging of devices all in a website.",
     imageUrl: "/device_status_central.jpg",
     imageHint: "IoT monitoring Website",
-    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Firebase"],
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Firebase", "C++"],
     repoUrl: "https://github.com/rperico-tech/device-status-central",
   },
   {
@@ -32,7 +32,7 @@ const projectsData: Project[] = [
     description: "A role-based authentication mobile application.",
     imageUrl: "/gingineers.jpg",
     imageHint: "mobile Application",
-    tags: ["Kotlin", "Node.js", "MongoDB", "Socket.io"],
+    tags: ["Kotlin", "XML", "Firebase"],
     projectUrl: "https://github.com/rperico-tech",
   }
 ];

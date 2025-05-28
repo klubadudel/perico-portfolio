@@ -58,7 +58,7 @@ export function AboutMeSection() {
                   <h3 className="text-xl font-semibold mb-3">TechStack</h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                     {technologies.map((tech) => (
-                      <li key={tech.name} className="flex items-center space-x-2 p-2 rounded-md bg-muted/20 dark:bg-muted/50">
+                      <li key={tech.name} className="flex items-center space-x-2 p-3 rounded-md bg-muted/20 dark:bg-muted/50 border border-transparent hover:border-primary transition-all duration-200 hover:shadow-sm">
                         {tech.icon}
                         <span>{tech.name}</span>
                       </li>
