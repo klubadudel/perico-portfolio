@@ -26,15 +26,15 @@ const projectsData: Project[] = [
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Shadcn"],
     repoUrl: "https://github.com/rperico-tech/perico-portfolio",
   },  
-  // {
-  //   id: "3",
-  //   title: "GinGineers Co.",
-  //   description: "A role-based authentication mobile application.",
-  //   imageUrl: "/gingineers.jpg",
-  //   imageHint: "mobile Application",
-  //   tags: ["Kotlin", "XML", "Firebase"],
-  //   projectUrl: "https://github.com/rperico-tech",
-  // }
+  {
+    id: "3",
+    title: "Odoo Form Writer Module",
+    description: "A custom Odoo module that enables users to design and print data onto preprinted forms with precise field positioning. Ideal for automating document workflows like invoices, permits, or government forms.",
+    imageUrl: "/odoo.jpg",
+    imageHint: "Odoo custom Module",
+    tags: ["Odoo", "XML", "Python", "Docker"],
+    repoUrl: "https://github.com/rperico-tech/",
+  }
 ];
 
 export function ProjectPortfolioSection() {
