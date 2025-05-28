@@ -26,15 +26,15 @@ const projectsData: Project[] = [
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Shadcn"],
     repoUrl: "https://github.com/rperico-tech/perico-portfolio",
   },  
-  {
-    id: "3",
-    title: "GinGineers Co.",
-    description: "A role-based authentication mobile application.",
-    imageUrl: "/gingineers.jpg",
-    imageHint: "mobile Application",
-    tags: ["Kotlin", "XML", "Firebase"],
-    projectUrl: "https://github.com/rperico-tech",
-  }
+  // {
+  //   id: "3",
+  //   title: "GinGineers Co.",
+  //   description: "A role-based authentication mobile application.",
+  //   imageUrl: "/gingineers.jpg",
+  //   imageHint: "mobile Application",
+  //   tags: ["Kotlin", "XML", "Firebase"],
+  //   projectUrl: "https://github.com/rperico-tech",
+  // }
 ];
 
 export function ProjectPortfolioSection() {
