@@ -18,7 +18,7 @@ export default function HomePage() {
         <section
           id="home"
           className="relative h-screen pt-16 flex items-center justify-center text-center
-                     bg-[radial-gradient(ellipse_at_center,hsla(210,50%,60%,0.4)_0%,transparent_70%)]
+                     bg-[radial-gradient(ellipse_at_center,hsla(210,50%,60%,0.7)_0%,transparent_70%)]
                      dark:bg-[radial-gradient(ellipse_at_center,rgba(250,204,21,0.4)_0%,transparent_70%)]
                      backdrop-blur-2xl"
         >
@@ -57,8 +57,11 @@ export default function HomePage() {
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none">
               Fullstack
             </h1>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mt-1 md:mt-2">
-              Developer
+            <h1 className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl font-black tracking-tighter leading-none">
+              &
+            </h1>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none">
+              IoT Developer
             </h1>
             
             <div className="mt-8 flex flex-row justify-center items-center gap-3 sm:gap-4">
