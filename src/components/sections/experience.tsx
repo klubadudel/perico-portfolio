@@ -78,7 +78,7 @@ export function ExperienceSection() {
                 <Card key={exp.id} className="text-left shadow-md hover:shadow-lg transition-shadow duration-300">
                   <CardHeader>
                     <CardTitle className="text-xl font-semibold">{exp.title}</CardTitle>
-                    <CardDescription className="text-base text-primary">{exp.company}</CardDescription>
+                    <CardDescription className="text-base text-primary dark:text-yellow-500">{exp.company}</CardDescription>
                     <div className="flex flex-col sm:flex-row sm:items-center text-sm text-muted-foreground space-y-1 sm:space-y-0 sm:space-x-4 mt-1">
                       <div className="flex items-center">
                         <CalendarDays className="mr-1.5 h-4 w-4" />
@@ -107,7 +107,7 @@ export function ExperienceSection() {
                 <Card key={edu.id} className="text-left shadow-md hover:shadow-lg transition-shadow duration-300">
                   <CardHeader>
                     <CardTitle className="text-xl font-semibold">{edu.degree}</CardTitle>
-                    <CardDescription className="text-base text-primary">{edu.institution}</CardDescription>
+                    <CardDescription className="text-base text-primary dark:text-yellow-500">{edu.institution}</CardDescription>
                      <div className="flex items-center text-sm text-muted-foreground mt-1">
                         <CalendarDays className="mr-1.5 h-4 w-4" />
                         <span>{edu.date}</span>
