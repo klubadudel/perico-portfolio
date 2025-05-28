@@ -76,7 +76,7 @@ export function ProjectPortfolioSection() {
                   </Button>
                 )}
                 {project.repoUrl && (
-                  <Button variant="ghost" size="sm" asChild>
+                  <Button variant="outline" size="sm" asChild>
                     <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" /> Source Code
                     </Link>
