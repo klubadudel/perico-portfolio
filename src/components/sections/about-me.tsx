@@ -9,23 +9,23 @@ export function AboutMeSection() {
     { name: "Next.js", icon: <SiNextdotjs className="h-5 w-5 text-black" /> },
     { name: "TypeScript", icon: <SiTypescript className="h-5 w-5 text-blue-600" /> },
     { name: "JavaScript", icon: <SiJavascript className="h-5 w-5 text-yellow-400" /> },
-    { name: "Node.js", icon: <SiNodedotjs className="h-5 w-5 text-green-600" /> },
-    { name: "Express.js", icon: <SiExpress className="h-5 w-5 text-gray-800" /> },
     { name: "Python", icon: <SiPython className="h-5 w-5 text-blue-400" /> },
-    { name: "Vue.js", icon: <SiVuedotjs className="h-5 w-5 text-green-500" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss className="h-5 w-5 text-sky-400" /> },
     { name: "HTML5", icon: <SiHtml5 className="h-5 w-5 text-orange-600" /> },
     { name: "CSS3", icon: <SiCss3 className="h-5 w-5 text-blue-500" /> },
-    { name: "YAML/YML", icon: <SiYaml className="h-5 w-5 text-gray-500" /> },
+    { name: "Node.js", icon: <SiNodedotjs className="h-5 w-5 text-green-600" /> },
+    { name: "Express.js", icon: <SiExpress className="h-5 w-5 text-gray-800" /> },
+    { name: "Vue.js", icon: <SiVuedotjs className="h-5 w-5 text-green-500" /> },
     { name: "C++", icon: <SiCplusplus className="h-5 w-5 text-blue-700" /> },
-    { name: "C", icon: <SiC className="h-5 w-5 text-gray-700" /> },
     { name: "Firebase", icon: <SiFirebase className="h-5 w-5 text-yellow-500" /> },
     { name: "Supabase", icon: <SiSupabase className="h-5 w-5 text-green-600" /> },
-    { name: "Odoo", icon: <img src="/icons/odoo.svg" alt="Odoo" className="h-5 w-5" /> },
-    { name: "PostgreSQL", icon: <SiPostgresql className="h-5 w-5 text-blue-800" /> },
+    { name: "YAML/YML", icon: <SiYaml className="h-5 w-5 text-gray-500" /> },
     { name: "MongoDB", icon: <SiMongodb className="h-5 w-5 text-green-700" /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="h-5 w-5 text-sky-400" /> },
+    { name: "PostgreSQL", icon: <SiPostgresql className="h-5 w-5 text-blue-800" /> },
+    { name: "Odoo", icon: <img src="/icons/odoo.svg" alt="Odoo" className="h-5 w-5" /> },
     { name: "Git", icon: <SiGit className="h-5 w-5 text-orange-500" /> },
     { name: "Docker", icon: <SiDocker className="h-5 w-5 text-blue-400" /> },
+    { name: "C", icon: <SiC className="h-5 w-5 text-gray-700" /> },
   ];
 
   return (
@@ -55,7 +55,7 @@ export function AboutMeSection() {
                   I develop web applications and IoT systems using modern JavaScript frameworks, server-side technologies, and database systems. My background includes both client-side and server-side programming, enabling me to deliver complete solutions.
                 </p>
                 <div>
-                  <h3 className="text-xl font-semibold mb-3">TechStack</h3>
+                  <h3 className="text-xl font-semibold mb-3">Technologies</h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                     {technologies.map((tech) => (
                       <li key={tech.name} className="flex items-center space-x-2 p-3 rounded-md bg-muted/20 dark:bg-muted/50 border border-transparent hover:border-primary transition-all duration-200 hover:shadow-sm">
