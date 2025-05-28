@@ -13,10 +13,10 @@ const workExperience = [
     date: "February 2025 - May 2025",
     location: "Makati City, Philippines",
     responsibilities: [
-      "Led the development of scalable web applications using Javascript, Python, and PHP.",
+      "Led the development of pre-printed form writer module in Odoo using Python ReportLab.",
       "Designed and implemented Odoo modules and managed database schemas with PostgreSQL.",
       "Collaborated with cross-functional teams to deliver high-quality software products.",
-      "Mentored co-intern developers and conducted code reviews to ensure code quality and consistency."
+      "Mentored and collaborated with co-intern developers and conducted code reviews to ensure code quality and consistency."
     ],
   },
   {
@@ -51,7 +51,7 @@ const educationExperience = [
   {
     id: "edu3",
     degree: "Full Stack Web Development Bootcamp",
-    institution: "Zuitt Coding Bootcamp",
+    institution: "FreeCodeCamp Bootcamp",
     date: "January 2023 - April 2023",
     description: "Intensive training program covering MERN stack (MongoDB, Express.js, React, Node.js).",
   },
