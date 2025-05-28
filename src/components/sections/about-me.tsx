@@ -48,11 +48,11 @@ export function AboutMeSection() {
             </div>
             <div className="md:w-2/3">
               <CardHeader>
-                <CardTitle className="text-2xl">Hello, I&apos;m a Developer!</CardTitle>
+                <CardTitle className="text-2xl">Hello, I&apos;m PJ!</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-foreground/80 leading-relaxed">
-                  I develop web applications using modern JavaScript frameworks, server-side technologies, and database systems. My background includes both client-side and server-side programming, enabling me to deliver complete solutions.
+                  I develop web applications and IoT systems using modern JavaScript frameworks, server-side technologies, and database systems. My background includes both client-side and server-side programming, enabling me to deliver complete solutions.
                 </p>
                 <div>
                   <h3 className="text-xl font-semibold mb-3">TechStack</h3>
