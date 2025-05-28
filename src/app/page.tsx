@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -7,8 +6,9 @@ import { ExperienceSection } from "@/components/sections/experience"; // Added i
 import { ProjectPortfolioSection } from "@/components/sections/project-portfolio";
 import { ContactFormSection } from "@/components/sections/contact-form";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Instagram, CalendarPlus, Download, Send } from "lucide-react";
+import { Github, Linkedin, Instagram, CalendarPlus, Download, Send, MapPin } from "lucide-react";
 import Link from "next/link";
+import { TimezoneClock } from "@/components/timezone-clock"; // Import the new component
 
 export default function HomePage() {
   return (
@@ -49,13 +49,20 @@ export default function HomePage() {
                     <path d="M0 0 L13 10 L0 20 Z" fill="#FFFFFF"/> {/* White Triangle */}
                     <circle cx="5" cy="10" r="1.8" fill="#FCD116"/> {/* Simplified Yellow Sun */}
                   </svg>
-                  Based in Philippines
+                  Based in PH
+                  <span className="text-md sm:text-lg text-muted-foreground flex items-center ml-2">
+                    <MapPin className="h-4 w-4 mr-0.5" /> 
+                    <TimezoneClock timezone="Asia/Manila" />
+                  </span>
                 </p>
               </div>
             </div>
 
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none">
               Fullstack
+              <span className="text-5xl sm:text-5xl md:text-5xl lg:text-5xl ml-4 font-black tracking-tighter leading-none">
+                &
+              </span>
             </h1>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none">
               IoT Developer
