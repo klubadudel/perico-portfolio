@@ -203,8 +203,13 @@ export function ContactFormSection() {
                     </FormItem>
                   )}
                 />
-                {/* Remove reCAPTCHA v2 Widget */}
-                {/* <div className="g-recaptcha" data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}></div> */}
+
+                {/* reCAPTCHA v3 Disclosure */} 
+                <p className="text-center text-xs text-muted-foreground">
+                  This site is protected by reCAPTCHA and the Google
+                  <a href="https://policies.google.com/privacy" className="text-primary underline ml-1" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and
+                  <a href="https://policies.google.com/terms" className="text-primary underline ml-1" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.
+                </p>
 
                 {/* Hidden input for reCAPTCHA v3 token */}
                 <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" />
