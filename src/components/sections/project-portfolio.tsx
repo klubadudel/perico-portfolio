@@ -13,7 +13,7 @@ const projectsData: Project[] = [
   {
     id: "1",
     title: "Device Status Central",
-    description: "A full-featured IoT platform application with status monitoring, notification, and logging of devices all in a website.",
+    description: "An IoT platform for monitoring the status of devices, sending notifications, and logging device activities, all through a web interface.",
     imageUrl: "/device_status_central.jpg",
     imageHint: "IoT monitoring Website",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Firebase", "C++"],
@@ -22,7 +22,7 @@ const projectsData: Project[] = [
   {
     id: "2",
     title: "Personal Portfolio",
-    description: "A way to showcase my skills built with Next.js, Tailwind CSS, and TypeScript for speed and security.",
+    description: "A personal portfolio showcasing my skills, built with Next.js, Tailwind CSS, and TypeScript to ensure fast performance and strong security.",
     imageUrl: "/personal_portfolio.jpg",
     imageHint: "personal Portfolio",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Shadcn"],
@@ -40,7 +40,7 @@ const projectsData: Project[] = [
   {
     id: "4",
     title: "Komyut",
-    description: "A web app that makes shows you the optimal route.",
+    description: "A web application that provides users with the optimal travel routes across the Philippines, helping to navigate the best paths for convenience and efficiency.",
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "map Routing app",
     tags: ["HTML", "CSS", "JavaScript", "Python"],
