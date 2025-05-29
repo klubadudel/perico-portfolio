@@ -117,7 +117,7 @@ export default function HomePage() {
            <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
              <div className="relative h-40 overflow-hidden rounded-md shadow-lg">
                <Card className="absolute inset-0 w-full h-full flex p-4 items-center gap-x-8">
-                 <div className="flex-shrink-0 flex ml-3 items-center justify-center rounded-md overflow-hidden">
+                 <div className="flex-shrink-0 flex items-center justify-center rounded-md overflow-hidden">
                     <Image
                        src="/icon.jpg"
                        alt="Profile Icon"
@@ -128,16 +128,17 @@ export default function HomePage() {
                     />
                  </div>
                 
-                   <div className="flex-shrink-0">
-                     <CardHeader className="p-0">
-                       <CardTitle className="text-6xl font-bold uppercase text-left font-black">Ricardo</CardTitle>
-                       <CardTitle className="text-6xl font-bold uppercase text-left font-black">Perico Jr.</CardTitle>
-                     </CardHeader>
-                   </div>
+                   <div className="flex flex-col flex-grow gap-y-2">
+                     <div className="flex-shrink-0">
+                       <CardHeader className="p-0">
+                         <CardTitle className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase text-left font-black">Ricardo</CardTitle>
+                         <CardTitle className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase text-left font-black">Perico Jr.</CardTitle>
+                       </CardHeader>
+                     </div>
+                    </div>
 
-                  <div className="flex flex-col ml-20 flex-grow gap-y-2">
-                   <div className="flex ml-5 flex-col gap-y-2">
-                     <CardContent className="p-0 flex flex-row ml-10 items-center gap-3">
+                  <div className="flex flex-col gap-y-2">
+                   <CardContent className="p-0 flex flex-row items-center gap-3">
                          <Button variant="outline" size="icon" asChild className="transition-transform hover:scale-110 rounded-full">
                            <Link href="https://github.com/rperico-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                              <Github className="h-5 w-5" />
@@ -172,7 +173,7 @@ export default function HomePage() {
                      </div>
 
                    </div>
-                 </div>
+
                </Card>
              </div>
            </div>
