@@ -1,3 +1,4 @@
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import type { Project } from "@/types";
 import { ExternalLink, Github } from "lucide-react";
+import { useState } from 'react';
 
 const projectsData: Project[] = [
   {
@@ -34,10 +36,27 @@ const projectsData: Project[] = [
     imageHint: "Odoo custom Module",
     tags: ["Odoo", "XML", "Python", "Docker"],
     repoUrl: "https://github.com/rperico-tech/",
+  },
+  {
+    id: "4",
+    title: "Komyut",
+    description: "A web app that makes shows you the optimal route.",
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "map Routing app",
+    tags: ["HTML", "CSS", "JavaScript", "Python"],
+    repoUrl: "https://github.com/rperico-tech/",
   }
 ];
 
 export function ProjectPortfolioSection() {
+  const [visibleProjects, setVisibleProjects] = useState(3); // Start with 3 projects visible
+
+  const handleSeeMore = () => {
+    setVisibleProjects(prev => prev + 3);
+  };
+
+  const allProjectsShown = visibleProjects >= projectsData.length;
+
   return (
     <section id="projects" className="bg-background">
       <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -45,7 +64,7 @@ export function ProjectPortfolioSection() {
           My Projects
         </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projectsData.map((project) => (
+          {projectsData.slice(0, visibleProjects).map((project) => (
             <Card key={project.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-48 w-full">
                 <Image
@@ -85,6 +104,18 @@ export function ProjectPortfolioSection() {
               </CardFooter>
             </Card>
           ))}
+        </div>
+        <div className="mt-8 text-center flex justify-center gap-4">
+          {visibleProjects > 3 && (
+            <Button variant="outline" size="lg" onClick={() => setVisibleProjects(3)}>
+              See Less
+            </Button>
+          )}
+          {!allProjectsShown && (
+            <Button variant="outline" size="lg" onClick={handleSeeMore}>
+              See More
+            </Button>
+          )}
         </div>
       </div>
     </section>
