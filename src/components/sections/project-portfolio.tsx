@@ -35,7 +35,7 @@ const projectsData: Project[] = [
     imageUrl: "/odoo.jpg",
     imageHint: "Odoo custom Module",
     tags: ["Odoo", "XML", "Python", "Docker"],
-    repoUrl: "https://github.com/rperico-tech/",
+    repoUrl: "https://github.com/rperico-tech/odoo-form-writer-module",
   },
   {
     id: "4",
